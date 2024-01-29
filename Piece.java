@@ -1,7 +1,7 @@
 /**
  * The Piece interface defines the characteristics of a game piece in a chess-like game.
  * Implementing classes should provide information about the player who owns the piece
- * and return a Unicode character representing the type of the piece (e.g., ♟ for pawn,
+ * and return a Unicode character representing the type of the piece (e.g., ♟︎ for pawn,
  * ♞ for knight, ♜ for rook, etc.).
  */
 public interface Piece {
