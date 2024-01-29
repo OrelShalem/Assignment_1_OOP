@@ -133,25 +133,28 @@ public class GameLogic implements PlayableLogic {
 //                    printGameSummary();
 //                }
 
+            return false;
+        }
+        ConcretePiece piece = this.board[a.getRow()][a.getCol()];
+        if(piece == null){
+            return true;
+        }
+        Player currentP = piece.getOwner();
+
+        if( !isCorner(b) && isSecondPlayerTurn() && !currentP.isPlayerOne()) {
+            movePiece(piece,a,b);
+        }
+        if(!isSecondPlayerTurn() && currentP.isPlayerOne() && piece instanceof Pawn ) {
+            if(isCorner(b)){
                 return false;
             }
-            ConcretePiece piece = this.board[a.getRow()][a.getCol()];
-             if(piece == null){
-                return true;
-             }
-            Player currentP = piece.getOwner();
+            movePiece(piece, a, b);
+        }
+        if(!isSecondPlayerTurn() && currentP.isPlayerOne()){
+            movePiece(piece, a, b);
+        }
 
-            if( !isCorner(b) && isSecondPlayerTurn() && !currentP.isPlayerOne()) {
-                movePiece(piece,a,b);
-            }
-            if(!isSecondPlayerTurn() && currentP.isPlayerOne() && piece instanceof Pawn && !isCorner(b)) {
-                movePiece(piece, a, b);
-            }
-            if(!isSecondPlayerTurn() && currentP.isPlayerOne()){
-                movePiece(piece, a, b);
-            }
-
-            // Move logic for player 1 (defenders)
+        // Move logic for player 1 (defenders)
 //            else if (piece != null && piece.getOwner().isPlayerOne() && !this.isSecondPlayerTurn()) {
 //                // Non-throne and non-corner move
 //                if (!isThrone(a) && !isCorner(b)) {
@@ -347,7 +350,7 @@ public class GameLogic implements PlayableLogic {
 
             }
             if (getPieceAtPosition(left1) != null && left2.isValid()  && getPieceAtPosition(left1).getOwner() != eater.getOwner()
-            && !Objects.equals(eater.getType(), "♔")) {
+                    && !Objects.equals(eater.getType(), "♔")) {
                 if ((getPieceAtPosition(left2) != null && !getPieceAtPosition(left2).getClass().equals(King.class) &&
                         getPieceAtPosition(left2).getOwner() == eater.getOwner()) || (isCorner(left2) && !isThrone(left1))) {
                     Pawn pawn = (Pawn) getPieceAtPosition(position);
@@ -595,12 +598,12 @@ public class GameLogic implements PlayableLogic {
 //            if (getPieceAtPosition(new Position(kingPosition.getCol(), kingPosition.getRow() - 1)) != null && !getPieceAtPosition(new Position(kingPosition.getCol(), kingPosition.getRow() - 1)).getOwner().isPlayerOne()) {
 //                if (getPieceAtPosition(new Position(kingPosition.getCol(), kingPosition.getRow() + 1)) != null && !getPieceAtPosition(new Position(kingPosition.getCol(), kingPosition.getRow() + 1)).getOwner().isPlayerOne()) {
 //                    if (getPieceAtPosition(new Position(kingPosition.getCol() - 1, kingPosition.getRow())) != null && !getPieceAtPosition(new Position(kingPosition.getCol() - 1, kingPosition.getRow())).getOwner().isPlayerOne()) {
-                       if (isKingSurrounded()) {
-                           this.p2.setWins(p2.getWins() + 1);
-                           this.p1.setPlayerOne(false);
-                           attackerWin = true;
-                           return win;
-                       }
+            if (isKingSurrounded()) {
+                this.p2.setWins(p2.getWins() + 1);
+                this.p1.setPlayerOne(false);
+                attackerWin = true;
+                return win;
+            }
 //                    }
 //                }
 //            }
