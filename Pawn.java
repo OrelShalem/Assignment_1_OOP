@@ -39,6 +39,6 @@ public class Pawn extends ConcretePiece{
     @Override
 
     public String getType() {
-        return (getOwner().isPlayerOne()) ? "♙" : "♟";//cd
+        return (getOwner().isPlayerOne()) ? "♙" : "♟";
     }
 }

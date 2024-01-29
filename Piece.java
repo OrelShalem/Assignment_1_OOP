@@ -20,6 +20,6 @@ public interface Piece {
      *         (e.g., ♟ for pawn, ♞ for knight, ♜ for rook, etc.).
      *
      */
-    String getType();
+    String getType();//
 }
 
