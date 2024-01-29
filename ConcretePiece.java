@@ -10,6 +10,7 @@ public abstract class ConcretePiece implements Piece{
     protected int number;  // Number associated with the piece
     private final ArrayList<Position> positionsHistory = new ArrayList<>();  // History of positions visited by the piece
     protected int distance;  // Cached value for the distance traveled by the piece
+    protected String type;
 
     /**
      * Constructor for ConcretePiece.
