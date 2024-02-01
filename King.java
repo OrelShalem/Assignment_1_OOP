@@ -19,6 +19,6 @@ public class King extends ConcretePiece{
      */
     @Override
     public String getType() {
-        return "♔";  // Unicode for king
+        return "\u2654";  // Unicode for king
     }
 }
