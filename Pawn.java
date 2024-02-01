@@ -39,6 +39,6 @@ public class Pawn extends ConcretePiece{
     @Override
 
     public String getType() {
-        return (this.getOwner().isPlayerOne()) ? "\\U+2659" : "\\U+265F";
+        return (this.getOwner().isPlayerOne()) ? "\u2659" : "\u265F";
     }
 }
