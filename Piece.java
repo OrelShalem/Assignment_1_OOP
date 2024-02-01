@@ -17,7 +17,7 @@ public interface Piece {
      * Get a Unicode character representing the type of the game piece.
      *  <a href="https://en.wikipedia.org/wiki/Chess_symbols_in_Unicode">...</a>
      * @return A Unicode character representing the type of this game piece
-     *         (e.g., \U+265F for pawn, U+265E for knight, U+265C for rook, etc.).
+     *         (e.g., U+265F for pawn, U+265E for knight, U+265C for rook, etc.).
      *
      */
     String getType();//
