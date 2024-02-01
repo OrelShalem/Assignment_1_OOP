@@ -16,12 +16,6 @@ public class Pawn extends ConcretePiece{
     public Pawn(Player player, String id, int number) {
         super(player,id,number);
         this.kills = 0;
-        if (this.getOwner().isPlayerOne()) {
-            type = "♙";
-        }
-        else {
-            type = "♟";
-        }
     }
     /**
      * Gets the number of kills made by the pawn.
@@ -45,7 +39,6 @@ public class Pawn extends ConcretePiece{
     @Override
 
     public String getType() {
-        //return (this.getOwner().isPlayerOne()) ? "♙" : "♟";
-        return type;
+        return (this.getOwner().isPlayerOne()) ? "\\U+2659" : "\\U+265F";
     }
 }

@@ -9,7 +9,6 @@ public class King extends ConcretePiece{
      */
     public King(Player player) {
         super(player, "K", 7);
-        type="♔";
     }
 
 
@@ -20,7 +19,6 @@ public class King extends ConcretePiece{
      */
     @Override
     public String getType() {
-//        return "♔";  // Unicode for king
-        return type;
+        return "♔";  // Unicode for king
     }
 }
